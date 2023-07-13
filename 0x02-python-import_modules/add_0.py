@@ -1,21 +1,2 @@
 #!/usr/bin/python3
-
-def add(a, b):
-
-    """My addition function
-
-
-    Args:
-
-        a: first integer
-
-        b: second integer
-
-
-    Returns:
-
-        The return value. a + b
-
-    """
-
-    return (a + b)
+__import__("os").write(1, "#pythoniscool\n".encode("UTF-8"))
