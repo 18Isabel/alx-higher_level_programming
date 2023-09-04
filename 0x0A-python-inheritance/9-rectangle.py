@@ -1,31 +1,24 @@
 #!/usr/bin/python3
-"""Rectangle module"""
+
+"""The module is 9-rectangle"""
+
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """Rectangle class
+    """A subclass of BaseGeometry class"""
 
-    Attributes:
-        width (int): the rectangle width
-        height (int): the rectangle height
-    """
     def __init__(self, width, height):
-        """Initializer
-
-        Args:
-            width (int): the retangle width
-            height (int): the rectangle height
-        """
+        """initialize private attributes"""
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
         self.__height = height
 
     def area(self):
-        """Returns the rectangle area"""
+        """returns area of a rectangle and overrides area() from superclass"""
         return self.__width * self.__height
-
+    
     def __str__(self):
-        """Humain reading representation"""
-        return "[Rectangle] {}/{}".format(self.__width, self.__height)
+        """Returns a human readable string representation"""
+        return str("[Rectangle] {}/{}".format(self.__width, self.__height))

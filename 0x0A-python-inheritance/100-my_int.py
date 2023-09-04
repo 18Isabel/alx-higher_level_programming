@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-"""Rebelion integer module"""
+
+"""Write a class MyInt that inherits from int"""
 
 
 class MyInt(int):
-    """Myint class"""
+    """A subclass of class int"""
     def __eq__(self, other):
-        """Equity comparaison"""
-        return not super().__eq__(other)
+        """sets the behaviour of == """
+        return int(self) != other
 
     def __ne__(self, other):
-        """Not equity comparaison"""
-        return not super().__ne__(other)
+        """sets the != behavior"""
+        return int(self) == other
