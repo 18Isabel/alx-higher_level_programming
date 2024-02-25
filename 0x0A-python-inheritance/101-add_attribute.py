@@ -1,10 +1,13 @@
 #!/usr/bin/python3
+"""101-add_attribute module - add attribute
+"""
 
-""" function that adds a new attribute to an object if it’s possible"""
 
-
-def add_attribute(obj, name, value):
-    """adds new attribute to an object"""
-    if not hasattr(obj, '__dict__'):
+def add_attribute(obj=object, attr=str, value=str):
+    """dynamically set a new attribute to a class"""
+    if not isinstance(obj, object):
         raise TypeError("can't add new attribute")
-    setattr(obj, name, value)
+    for att in dir(obj):
+        if att[2:-2] is attr:
+            raise TypeError("can't add new attribute")
+    obj.attr = value

@@ -1,12 +1,21 @@
 #!/usr/bin/python3
-# 4-new_in_list.py
+if __name__ != "__main__":
+    exit
 
 
 def new_in_list(my_list, idx, element):
-    """Replace an element in a copied list at a specific position."""
-    if idx < 0 or idx > (len(my_list) - 1):
-        return (my_list)
+    """function that replaces an element of a list at a specific position
 
-    copy = [x for x in my_list]
-    copy[idx] = element
-    return (copy)
+        Args:
+        my_list: list of elements
+        idx: index
+        element: element
+
+        Return: a new list
+    """
+    if idx < 0 or idx >= len(my_list):
+        return my_list
+    myListCopy = my_list.copy()
+    myListCopy.pop(idx)
+    myListCopy.insert(idx, element)
+    return myListCopy

@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+"""The 5-base_geometry: python inheritance
+"""
 
-"""Create an empty class"""
 
-
-class BaseGeometry:
-    """Empty class"""
+class BaseGeometry():
+    """class BaseGeometry"""
     pass

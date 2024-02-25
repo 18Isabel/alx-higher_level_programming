@@ -1,9 +1,18 @@
 #!/usr/bin/python3
 def complex_delete(a_dictionary, value):
-    list_keys = list(a_dictionary.keys())
+    """ function that deletes keys with a specific value in a dictionary.
 
-    for value_dic in list_keys:
-        if value == a_dictionary.get(value_dic):
-            del a_dictionary[value_dic]
+        Args:
+        a_dictionary: a dictionary
+        value: searched value
 
-    return (a_dictionary)
+        Return:
+        A new new dict
+    """
+    if len(a_dictionary) == 0:
+        return a_dictionary
+    b_dictionary = a_dictionary.copy()
+    for key, val in b_dictionary.items():
+        if val == value:
+            del a_dictionary[key]
+    return a_dictionary

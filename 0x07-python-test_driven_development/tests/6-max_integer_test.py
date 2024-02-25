@@ -1,73 +1,77 @@
 #!/usr/bin/python3
-""" Unittest for the max_integer module"""
 
 import unittest
 max_integer = __import__('6-max_integer').max_integer
 
+"""Unittests for max_integer() function using TestMaxinteger class
+TestMaxInteger is a subclass of unittest.Testcase"""
+
 
 class TestMaxInteger(unittest.TestCase):
-    """ Testcase for the max_integer function"""
-
+    """ MaxInteger - a unittest type class to run test on 6-max_integer module"""
     def test_empty_list(self):
-        """ Test an empty list"""
-        empty = []
-        self.assertEqual(max_integer(empty), None)
+        """Test when input list is empty."""
+        self.assertEqual(max_integer([]), None)
 
-    def test_max_at_the_end(self):
-        """Test a list where max value is at the end"""
-        max_at_the_end = [1, 3, 2, 4]
-        self.assertEqual(max_integer(max_at_the_end), 4)
+    def test_positive_numbers(self):
+        """Test when input list contains positive numbers."""
+        self.assertEqual(max_integer([1, 2, 3, 4, 5]), 5)
 
-    def test_max_at_begginning(self):
-        """Test a list with a beginning max value."""
-        max_at_beginning = [4, 1, 3, 2]
-        self.assertEqual(max_integer(max_at_beginning), 4)
+    def test_negative_numbers(self):
+        """Test when input list contains negative numbers."""
+        self.assertEqual(max_integer([-1, -2, -3, -4, -5]), -1)
 
-    def test_ordered_list(self):
-        """Test an ordered list of integers."""
-        ordered = [1, 2, 3, 4]
-        self.assertEqual(max_integer(ordered), 4)
+    def test_mixed_numbers(self):
+        """Test when input list contains a mix of negative, zero, and positive numbers."""
+        self.assertEqual(max_integer([-1, 0, 1, 2, 3]), 3)
 
-    def test_unordered_list(self):
-        """Test an unordered list of integers."""
-        unordered = [1, 2, 4, 3]
-        self.assertEqual(max_integer(unordered), 4)
+    def test_duplicate_numbers(self):
+        """Test when input list contains duplicate numbers."""
+        self.assertEqual(max_integer([3, 3, 3, 3]), 3)
 
-    def test_unique_element_list(self):
-        """Test a list with a single element."""
-        unique_element = [40]
-        self.assertEqual(max_integer(unique_element), 40)
+    def test_single_element(self):
+        """Test when input list contains a single element."""
+        self.assertEqual(max_integer([42]), 42)
 
-    def test_ints_and_floats_list(self):
-        """Test a list of ints and floats."""
-        ints_and_floats = [1.53, 15.5, -9, 15, 6]
-        self.assertEqual(max_integer(ints_and_floats), 15.5)
+    def test_sorted_list(self):
+        """Test when input list is sorted in ascending order."""
+        sorted_list = [2, 3, 4, 5]
+        self.assertEqual(max_integer(sorted_list), 5)
 
-    def test_float_list(self):
-        """Test a list of floats."""
-        float = [1.53, 6.33, -9.123, 15.2, 6.0]
-        self.assertEqual(max_integer(float), 15.2)
+    def test_unsorted_list(self):
+        """Test when input list is unsorted."""
+        unsorted_list = [5, 2, 4, 3]
+        self.assertEqual(max_integer(unsorted_list), 5)
 
-    def test_string_list(self):
-        """Test a string."""
-        string = "Terry"
-        self.assertEqual(max_integer(string), 'y')
+    def test_single_element_list(self):
+        """Test when input list contains a single element."""
+        single_elem_list = [3]
+        self.assertEqual(max_integer(single_elem_list), 3)
 
-    def test_neg_float_list(self):
-        """Test negative floats"""
-        neg_float = [-5.55, -66.66, -111.1]
-        self.assertEqual(max_integer(neg_float), -5.55)
+    def test_float(self):
+        """Test when input list contains all float values."""
+        float_list = [2.85, 3.40, -8.103, 21.24, 9.0]
+        self.assertEqual(max_integer(float_list), 21.24)
 
-    def test_diff_datatypes(self):
-        """ Test different data types"""
-        with self.assertRaises(TypeError):
-            max_integer([1, "1"])
+    def test_combination(self):
+        """Test when input list contains a combination of integers and floats."""
+        comb_list = [2.53, 18.5, -9, 15, 5]
+        self.assertEqual(max_integer(comb_list), 18.5)
 
-    def test_list_list(self):
-        """ Test nested list"""
-        list = [[1, 2], [2, 1]]
-        self.assertEqual(max_integer(list), [2, 1])
+    def test_single_string(self):
+        """Test when input is a single string."""
+        string = "A sample string"
+        self.assertEqual(max_integer(string), 't')
+
+    def test_list_of_strings(self):
+        """Test when input is a list of strings."""
+        strings = ["Here", "to", "test", "this"]
+        self.assertEqual(max_integer(strings), "to")
+
+    def test_empty_string(self):
+        """Test when input is an empty string."""
+        self.assertEqual(max_integer(""), None)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

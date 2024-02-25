@@ -1,18 +1,34 @@
 #!/usr/bin/python3
-# 7-add_tuple.py
+if __name__ != "__main__":
+    exit
+
+
+def add_to_tuple(_turple=()):
+    if len(_turple) == 0:
+        return (0, 0)
+    if len(_turple) < 2:
+        for each_item in _turple:
+            if each_item <= 0 or each_item >= 0:
+                (a, b) = each_item, 0
+            return (a, b)
+    if len(_turple) == 2:
+        return (_turple)
+    if len(_turple) > 2:
+        return (_turple[0], _turple[1])
 
 
 def add_tuple(tuple_a=(), tuple_b=()):
-    """Add two tuples."""
-    if len(tuple_a) < 2:
-        if len(tuple_a) == 0:
-            tuple_a = 0, 0
-        else:
-            tuple_a = tuple_a[0], 0
-    if len(tuple_b) < 2:
-        if len(tuple_b) == 0:
-            tuple_b = 0, 0
-        else:
-            tuple_b = tuple_b[0], 0
+    """ function that adds 2 tuples
 
-    return (tuple_a[0] + tuple_b[0], tuple_a[1] + tuple_b[1])
+        Args:
+        tuple_a: first tuple
+        tuple_b: second tuple
+
+        Return:
+        a tuple with 2 integers
+    """
+    a, b = add_to_tuple(tuple_a)
+    c, d = add_to_tuple(tuple_b)
+
+    (e, f) = a + c, b + d
+    return (e, f)

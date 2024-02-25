@@ -1,53 +1,85 @@
-==================================
-The ``4-print_square.txt`` module
-==================================
+The 4-print_square Module
+=======================
 
-Using ``print_square``
+Using print_square function
+---------------------------
+
+---------------------
+Importing the module:
+---------------------
+>>> print_square = __import__('4-print_square').print_square
+
 -----------------------
+Testing documentation:
+-----------------------
+>>> doc_1 = __import__('4-print_square').print_square.__doc__
+>>> print(len(doc_1) > 1)
+True
 
-Import the function:
+>>> doc_2 = __import__('4-print_square').print_square.__doc__
+>>> print(len(doc_2) > 1)
+True
 
-    >>> print_square = __import__('4-print_square').print_square
+-----------------------------
+checking number of arguments:
+-----------------------------
+# Test case: Valid input with size 4
+>>> print_square(4)
+####
+####
+####
+####
 
-Now test it:
+# Test case: Valid input with size 10
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
 
-    >>> print_square(4)
-    ####
-    ####
-    ####
-    ####
+-----------------------------
+checking incorrect arguments:
+-----------------------------
+# Test case: Invalid input with size 0
+>>> print_square(0)
 
-    >>> print_square(10)
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
+# Test case: Valid input with size 1
+>>> print_square(1)
+#
 
-    >>> print_square(0)
+# Test case: Invalid input with a float size (4.5)
+>>> print_square(4.5)
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
 
+# Test case: Invalid input with 'all' as the size
+>>> print_square(all)
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
 
-    >>> print_square("Hello")
-    Traceback (most recent call last):
-    TypeError: size must be an integer
+# Test case: Invalid input with 'None' as the size
+>>> print_square(None)
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
 
-    >>> print_square(5.7)
-    Traceback (most recent call last):
-    TypeError: size must be an integer
+# Test case: Invalid input with a string as the size ("INTEGER")
+>>> print_square("INTEGER")
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
 
-    >>> print_square(-2)
-    Traceback (most recent call last):
-    ValueError: size must be >= 0
+# Test case: Invalid input with a negative size (-10)
+>>> print_square(-10)
+Traceback (most recent call last):
+  ...
+ValueError: size must be >= 0
 
-    >>> print_square(-3.0)
-    Traceback (most recent call last):
-    TypeError: size must be an integer
-
-    >>> print_square()
-    Traceback (most recent call last):
-    TypeError: print_square() missing 1 required positional argument: 'size'

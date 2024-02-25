@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-
-"""Write a class MyInt that inherits from int"""
+"""100-my_int - python inheritance"""
 
 
 class MyInt(int):
-    """A subclass of class int"""
-    def __eq__(self, other):
-        """sets the behaviour of == """
-        return int(self) != other
+    """class MyInt that inherits from `int`"""
+    def __eq__(self, num):
+        """__eq__: computes equality
+        Return: not equally bool"""
+        return not super().__eq__(num)
 
-    def __ne__(self, other):
-        """sets the != behavior"""
-        return int(self) == other
+    def __ne__(self, num):
+        """__ne__: computes inequality
+        Return: not inquality bool"""
+        return not super().__ne__(num)

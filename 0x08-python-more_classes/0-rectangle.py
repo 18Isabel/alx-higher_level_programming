@@ -1,13 +1,10 @@
 #!/usr/bin/python3
+
 """
-Rectangle class module.
-
-Define Rectangle class.
+0-rectangle.py module - contains Rectangle() class
 """
 
 
-class Rectangle:
-    """Define a rectangle."""
-
-    def __init__(self):
-        pass
+class Rectangle():
+    """Rectangle - mpty class Rectangle that defines a rectangle"""
+    pass

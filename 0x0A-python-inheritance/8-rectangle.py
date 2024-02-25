@@ -1,16 +1,18 @@
 #!/usr/bin/python3
+"""The 8-rectangle: python inheritance
 
-"""The module is 8-base_geometry"""
-
+Test file for this module is located in ./tests/
+Run (python3 -m doctest -v ./tests/7-base_geometry.txt | tail -2) to test
+Remove the pipeline to see full details
+"""
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """A subclass of BaseGeometry class"""
-
+    """child class Rectangle to parent class BaseGeometry"""
     def __init__(self, width, height):
-        """initialize private attributes"""
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
+        """initialize an object instance"""
         self.__width = width
         self.__height = height
+        super().integer_validator("height", self.__height)
+        super().integer_validator("width", self.__width)

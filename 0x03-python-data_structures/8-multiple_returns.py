@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-# 8-multiple_returns.py
+if __name__ != "__main__":
+    exit
 
 
 def multiple_returns(sentence):
-    """Returns the length of a string and its first character."""
-    if sentence == "":
-        return (0, None)
-    return (len(sentence), sentence[0])
+    if len(sentence) == 0:
+        first_char = None
+    else:
+        first_char = sentence[0]
+    return (len(sentence), first_char)

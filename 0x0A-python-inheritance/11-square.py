@@ -1,24 +1,21 @@
 #!/usr/bin/python3
-
-"""importing Rectangle"""
-
+"""10-square module
+Author: Adam Sanusi Babatunde
+"""
 Rectangle = __import__('9-rectangle').Rectangle
-
-"""Write a class square that inherites from rectangle"""
 
 
 class Square(Rectangle):
-    """A subclass of Rectangle"""
+    """class square of subclass Rectangle"""
     def __init__(self, size):
-        """initialize private attribute size and validate it"""
-        self.integer_validator("size", size)
-        super().__init__(size, size)
+        """ initialize an instance"""
         self.__size = size
+        super().integer_validator("size", self.__size)
 
     def area(self):
-        """returns area of a square"""
+        """returns the area of a square"""
         return self.__size ** 2
 
     def __str__(self):
-        """Return and print the square description"""
-        return str("[Square] {:d}/{:d}".format(self.__size, self.__size))
+        """returns an informal represantation of an instance"""
+        return f"[Square] {self.__size}/{self.__size}"

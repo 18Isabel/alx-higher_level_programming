@@ -1,11 +1,9 @@
 #!/usr/bin/python3
+"""The 5-base_geometry: python inheritance
+"""
 
-"""The module is 6-base_geometry"""
 
-
-class BaseGeometry:
-    """Defines BaseGeometry class"""
-
+class BaseGeometry():
+    """class BaseGeometry"""
     def area(self):
-        """Raise an exception"""
         raise Exception("area() is not implemented")

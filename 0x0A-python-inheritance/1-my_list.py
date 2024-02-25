@@ -1,14 +1,17 @@
 #!/usr/bin/python3
+"""
+1-my_list module: python inheritance
 
-"""The module is 1-my_list"""
+Test file for this module is located in ./tests/
+Run (python3 -m doctest -v ./tests/1-my_list.txt | tail -2) to test
+Remove the pipeline to see full details
+"""
 
 
 class MyList(list):
-    """A subclass of list"""
-    def __init__(self):
-        """initialize the object"""
-        super().__init__()
-
+    """Mylist: A class that inherits from a builtin class (list)"""
     def print_sorted(self):
-        """prints the sorted list"""
+        """print_sorted: prints a sorted list in ascending order
+        Assume all the elements of the list will be of type int
+        """
         print(sorted(self))
