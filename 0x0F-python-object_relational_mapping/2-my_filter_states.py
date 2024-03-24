@@ -1,25 +1,25 @@
 #!/usr/bin/python3
-"""script that lists all states from the database hbtn_0e_0_usa
-Use (source maintest/0-select_states.sql) to load into the MySQL Server
-Execute by (./2-select_states.py username password database_name, name)
-"""
-if __name__ == "__main__":
-    import MySQLdb
-    from sys import argv
+""" script that takes in an argument and displays all values
+in the states table of hbtn_0e_0_usa where name matches
+the argument."""
 
-    db = MySQLdb.connect(
-        host='localhost',
-        user=argv[1],
-        passwd=argv[2],
-        db=argv[3],
-        port=3306
-    )
-    ptr = db.cursor()
-    ptr.execute("SELECT * FROM states "
-                "WHERE states.name LIKE BINARY '{}' "
-                "ORDER BY states.id ASC".format(argv[4]))
-    rows = ptr.fetchall()
+import MySQLdb
+import sys
+
+if __name__ == "__main__":
+
+    db = MySQLdb.connect(host="localhost",
+                         port=3306,
+                         user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3])
+    cur = db.cursor()
+    cur.execute(
+        "SELECT * FROM states WHERE name LIKE '{:s}' ORDER BY states.id ASC;"
+        .format(sys.argv[4]))
+    rows = cur.fetchall()
     for row in rows:
-        print(row)
-    ptr.close()
+        if row[1] == sys.argv[4]:
+            print(row)
+    cur.close()
     db.close()
